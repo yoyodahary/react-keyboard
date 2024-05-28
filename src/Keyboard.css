@@ -1,0 +1,83 @@
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.key:hover {
+    background-color: #752b2b;
+}
+
+.key:active {
+    background-color: #d9d9d9;
+}
+
+.key span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.keyboard-row{
+    display: flex;
+    justify-content: space-around;
+
+} 
+
+
+.keyboard-rows{
+    
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px;
+
+} 
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    
+
+}
+
+/* .general-keys {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+} */
+.general-keys label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* This creates space between the checkbox and the label */
+}
+.general-keys input[type="checkbox"] {
+    transform: scale(1.5); /* Adjust this value to make the checkbox as large as you want */
+}
+
+.special-keys {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.undo-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    cursor: pointer;
+}
