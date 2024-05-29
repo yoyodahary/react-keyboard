@@ -1,5 +1,4 @@
 function TextBox({data}) {
-    console.log("data", data)
     return (
         <div className="text-box">
             {data.map((item, index) => {

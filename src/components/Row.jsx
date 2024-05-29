@@ -1,5 +1,5 @@
 import React from 'react';
-import './Keyboard.css';
+import '../styles/Keyboard.css';
 
 function Row({isUpper,keys}) {
 

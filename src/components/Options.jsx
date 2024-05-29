@@ -1,6 +1,6 @@
 // Options.jsx
 import React from 'react';
-import './Options.css';
+import '../styles/Options.css';
 import OptionsList from './OptionsList.jsx';
 
 const Options = ({ optionsLists }) => {

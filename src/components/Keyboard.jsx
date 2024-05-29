@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react'
-import './Keyboard.css';
+import '../styles/Keyboard.css';
 import './Options.jsx';
 import Row from './Row.jsx'
 import Options from './Options.jsx';
@@ -8,7 +8,7 @@ import { SlActionUndo } from "react-icons/sl";
 
 
 
-function Keyboard({setData}) {
+function Keyboard({setData,data}) {
 
   const colors = ['Black', 'Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple', 'Pink', 'Brown', 'White']
   const fonts = ['Arial', 'Times New Roman', 'Courier New']
@@ -93,13 +93,7 @@ function Keyboard({setData}) {
     if (history.length > 0) {
       console.log("The history is", history)
       let lastKey = history[history.length - 1];
-      let prevKey = history[history.length - 2];
-      if (lastKey === 'Backspace') {
-        setData(prevState => ([...prevState, prevKey]));
-      }
-      else {
-        setData(prevState => ([...prevState.slice(0, -1)]));
-      }
+      setData(history[history.length - 1]);
       setHistory(prevState => ([...prevState.slice(0, -1)]));
     }
   }
@@ -107,7 +101,6 @@ function Keyboard({setData}) {
   
 
   const handleStateChange = (key) => {
-    console.log("The key is", key)
     if (key === 'CapsLock') {
       setIsUpperCase(!isUpperCase);
       return true;
@@ -121,7 +114,6 @@ function Keyboard({setData}) {
       setFont(key);
       return true;
     }
-    setHistory(prevState => ([...prevState, key]));
     return false;
 
   }
@@ -129,7 +121,6 @@ function Keyboard({setData}) {
 
   const handleKeyPress = (event) => {
 
-    console.log("In handleKeyPress", event.target.innerText)
 
 
     let space = { letter: ' ', color: color, font: font }
@@ -139,11 +130,10 @@ function Keyboard({setData}) {
       const key = event.target.innerText;
       if (key === 'Backspace') {
         setData(prevState => ([...prevState.slice(0, -1)]));
-        setHistory(prevState => ([...prevState, key]));
+        setHistory(prevState => ([...prevState, data]));
       }  
       else if (key === 'CapsLock') {
         setIsUpperCase(!isUpperCase);
-        // make the keybord upper case
         
       } 
       else {
@@ -158,7 +148,7 @@ function Keyboard({setData}) {
           }
           let newKey = { letter: letter, color: color, font: font,fontSize: fontSize}
           setData(prevState => ([ ...prevState, newKey ]));
-          setHistory(prevState => ([...prevState, newKey]));
+          setHistory(prevState => ([...prevState, data]));
 
 
         }
